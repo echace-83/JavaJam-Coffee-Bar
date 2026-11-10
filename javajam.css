@@ -1,39 +1,38 @@
-body {background-color: #fcebb6; 
+body {background-color: #d2b48c; 
 	color: #221811; 
 	font-family: Tahoma, Arial, sans-serif;
-	background-image: url(fadedroad50.jpg); background-attachment: fixed; background-size: cover; background-repeat: no-repeat;
+	margin: 0;
 }
 main {padding-left: 0;
 	padding-right: 0;
 	padding-bottom: 2em;
 	height: auto;
-	overflow: auto;
-	margin-left: 200px;
 	padding-top: 0;
 	background-color: #fef6c2;
 }
 header {background-color: #d2b48c; 
 	color: #231814;
-	background-image: url(coffeelogo.jpg);
+	background-image: url(cup.jpg);
 	background-repeat: no-repeat;
 	padding-top: 5px;
-	padding-left: 240px;
+	padding-left: 105px;
 	padding-bottom: 5px;
+	height: 128px;
 }
 header a:link {text-decoration: none;
 				color: #231814;}
 header a:visited {text-decoration: none;
 				color: #231814;}
 header a:hover {color: #fef6c2;}
-h1 {font-size: 3em;
+h1 {font-size: 2em;
 }
 h2 {color: #8c3826;
-	padding-left: 3em;
-	padding-right: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
 }
 h3 {color: #8c3826;
-	padding-left: 3em;
-	padding-right: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
 }
 dt {color: #8c3826
 }
@@ -41,20 +40,15 @@ h4 {background-color: #d2b48c;
 	font-size: 1.2em;
 	text-transform: uppercase;
 	border-bottom: 2px solid #8c3826;
-	padding-left: 3em;
-	padding-right: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
 	padding-bottom: 0;
 }
-p {padding-left: 3em;
-	padding-right: 2em;
+p {padding-left: 1em;
+	padding-right: 1em;
 }
 nav {text-align: center;
-	font-weight: bold;
 	font-size: 1.5em;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	float: left;
-	width: 200px;
 }
 nav a{text-decoration: none;
 }
@@ -62,16 +56,27 @@ nav a:link {color: #fef6c2;}
 nav a:visited {color: #d2b48c;}
 nav a:hover {color: #cc9933;}
 nav ul {list-style-type: none;
-		padding-left: 0;
+		display: flex;
+		flex-direction: column;
+		margin: 0;
+		padding: 0;
+		font-size: 1.25em;
 }
-div {padding-left: 3em;
+nav li {padding-top: .5em;
+		padding-bottom: .5em;
+		padding-left: 1em;
+		padding-right: 1em;
+		width: 100%;
+		border-bottom: 1px solid;
+}
+div {padding-left: 1em;
+	padding-right: 1em;
+}
+ul {padding-left: 2em;
 	padding-right: 2em;
 }
-ul {padding-left: 3em;
-	padding-right: 2em;
-}
-dl {padding-left: 3em;
-	padding-right: 2em;
+dl {padding-left: 1em;
+	padding-right: 1em;
 }
 footer {background-color: #d2b48c;
 	font-size: .6em;
@@ -84,12 +89,13 @@ footer {background-color: #d2b48c;
 	border-color: #8C3826;
 }
 #wrapper {background-color: #231814;
-		margin-left: auto;
-		margin-right: auto;
-		min-width: 900px;
-		max-width: 1280px;
-		box-shadow: 2px 2px;
 		padding: 0;
+}
+#mobile {
+  display: inline;
+}
+#desktop {
+	display: none;
 }
 .details {padding-left: 20%;
 		padding-right: 20%;
@@ -102,23 +108,63 @@ img {padding-left: 10px;
 .homehero {height: 300px;
 		background-size: 100% 100%;
 		background-repeat: no-repeat;
+		background-image: url(road.jpg);
 }
 .heromugs {height: 300px;
 		width: auto;
 		background-size: 100% 100%;
 		background-repeat: no-repeat;
-		background-image: url(mugs.jpg);
+		background-image: url(threemugs.jpg);
 }
 .heroguitar {height: 300px;
 			background-size: 100% 100%;
 			background-repeat: no-repeat;
-			background-image: url(heroguitar.jpg);
-}
-.floatleft {bottom: 2em;
-			right: 2em;
-}
-.onethird {float: left;
-			width: 33%;
+			background-image: url(guitar.jpg);
 }
 * {box-sizing: border-box;
+}
+
+/*for medium sized screens and larger */
+@media (min-width: 600px) {
+	header {text-align: center;
+		padding-left: 0;}
+	h1 {font-size: 3em;}
+	nav ul {flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-around;}
+	nav li {border-bottom: none;
+		width: auto;}
+	.homehero {height: 50vh;
+		background-image: url(hero.jpg);}
+	.heromugs {height: 50vh;
+		background-image: url(heromugs.jpg);}
+	.heroguitar {height: 50vh;
+		background-image: url(heroguitar.jpg);}
+	.flow {display: flex;
+		flex-direction: row;}
+	.mobile {display: none;}
+	.desktop {display: inline;}
+	.details {display: flex;
+		flex-direction: row;}
+	h4 {margin-left: 10%;
+		margin-right: 10%;}
+	}
+
+/*for larger sized screens and displays */
+@media (min-width: 1024px) {
+	@supports (display: grid) {
+		header {grid-area: header;
+			background-image: url(coffeelogo.jpg);}
+		nav {grid-area: nav;}
+		main {grid-area: main;}
+		footer {grid-area: footer;}
+		#wrapper {display: grid;
+			grid-template:
+				"header header"
+				"nav main"
+				"footer footer"
+				/ 200px;}
+		nav ul {flex-direction: column;}
+
+	}
 }
