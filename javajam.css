@@ -123,6 +123,13 @@ img {padding-left: 10px;
 }
 * {box-sizing: border-box;
 }
+table {width: 90%;
+	border-spacing: 0;
+	margin: 0 auto;
+}
+td {padding: 10px;}
+th {padding: 10px;}
+tr:nth-of-type(odd) {background-color: #d2b48e;}
 
 /*for medium sized screens and larger */
 @media (min-width: 600px) {
